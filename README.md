@@ -1,4 +1,4 @@
-# ClassFlow v0.3
+# 성진 클래스 잠원 v0.3
 
 ## 안전한 초기 설정
 1. Supabase 프로젝트 생성 → SQL Editor에서 `supabase.sql` 실행.

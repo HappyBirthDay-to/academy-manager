@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'; // 인증 상태가 바뀔 때 화면을 즉시 갱신합니다.
 import { createRoot } from 'react-dom/client'; // React 앱을 브라우저에 표시합니다.
 import { App } from './App'; // 인증된 사용자에게만 업무 화면을 보여줍니다.
-import { supabase, publicSupabaseKey } from './supabase'; // 인증 URL에 공개 API 키를 전달하기 위해 두 값을 가져옵니다.// 기존 Supabase 프로젝트 연결을 유지합니다.
+import { supabase } from './supabase'; // 기존 Supabase 프로젝트 연결을 유지합니다.
 import './style.css'; // 기존 반응형 디자인을 유지합니다.
+import './redesign.css'; // 수정된 반응형 스타일을 마지막에 적용합니다.
 
 function Root() { // Google 인증과 화면 전환을 한 곳에서 관리합니다.
   const [ready, setReady] = useState(false); // 인증 확인 전에 개인정보 화면이 표시되지 않도록 합니다.
@@ -30,16 +31,13 @@ function Root() { // Google 인증과 화면 전환을 한 곳에서 관리합�
       options: { redirectTo: window.location.origin, skipBrowserRedirect: true, queryParams: { prompt: 'select_account' } }, // API 키를 추가한 뒤 이동하기 위해 자동 이동을 끕니다.
     }); // 인증 URL 생성을 마칩니다.
     if (error || !data.url) { setMessage(error?.message ?? 'Google 인증 URL 생성 실패'); setLoading(false); return; } // 오류가 있으면 이동하지 않습니다.
-
-      const target = new URL(data.url); // Supabase SDK에서 생성한 Google 인증 URL을 사용합니다.
-      target.searchParams.set('apikey', publicSupabaseKey); // Render에서 발생한 API 키 누락 오류를 방지합니다.
-      window.location.assign(target.toString()); // 인증 파라미터를 유지한 상태로 Google 로그인 화면으로 이동합니다.
-
-      // SDK에서 생성한 인증 URL을 그대로 사용합니다.
+    const target = new URL(data.url); // SDK의 인증 파라미터를 유지합니다.
+    // SDK에서 생성한 인증 URL을 그대로 사용합니다.
     window.location.assign(target.toString()); // 실제 Google 인증으로 이동합니다.
   }; // Google 로그인 처리를 마칩니다.
   if (!ready) return <div className="login-page">로그인 상태를 확인하고 있어요...</div>; // 확인 중에는 업무 데이터를 숨깁니다.
   if (signed) return <App />; // 인증이 완료된 경우에만 업무 화면을 렌더링합니다.
-  return <div className="login-page"><section className="login-card kakao-login-card"><div className="login-mark"> </div><h1>성진 클래스 잠원점</h1><p>학생 관리부터 출석, 차량, 교육비까지<br />하나의 공간에서 관리하세요.</p><button className="kakao-login-button" type="button" disabled={loading} onClick={() => void login()}><span aria-hidden="true">●</span>{loading ? 'Google 연결 중...' : 'Google 계정으로 시작하기'}</button>{message && <p className="login-error" role="alert">{message}</p>}<small>Google 계정으로 로그인합니다.</small><p className="login-disclaimer">현재 버전은 공용 학원 데이터를 사용합니다.<br />승인된 관리자만 접근하도록 보안 정책을 추가해야 합니다.</p></section></div>; // 비로그인 사용자에게만 Google 로그인 버튼을 보여줍니다.
+  return <div className="login-page"><section className="login-card kakao-login-card"><div className="login-mark"><img src="/academy-emblem-reference.png" alt="태권도 발차기와 줄넘기" /></div><h1>성진 클래스 잠원점</h1><p>학생 관리부터 출석, 차량, 교육비까지<br />하나의 공간에서 관리하세요.</p><button className="kakao-login-button" type="button" disabled={loading} onClick={() => void login()}><span aria-hidden="true">●</span>{loading ? 'Google 연결 중...' : 'Google 계정으로 시작하기'}</button>{message && <p className="login-error" role="alert">{message}</p>}<small>Google 계정으로 로그인합니다.</small><p className="login-disclaimer">현재 버전은 공용 학원 데이터를 사용합니다.<br />승인된 관리자만 접근하도록 보안 정책을 추가해야 합니다.</p></section></div>; // 비로그인 사용자에게만 Google 로그인 버튼을 보여줍니다.
 } // 루트 컴포넌트를 종료합니다.
 createRoot(document.getElementById('root')!).render(<React.StrictMode><Root /></React.StrictMode>); // 개발 중 인증 상태 오류를 확인하기 쉽게 합니다.
+

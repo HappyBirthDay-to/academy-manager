@@ -106,3 +106,63 @@ body{background:var(--ui-canvas);color:var(--ui-ink)}
  .modal{width:100%;padding:18px}.fields{grid-template-columns:1fr}.login-page{padding:15px!important}.login-card.kakao-login-card{padding:27px 23px!important;width:min(100%,420px)}
 }
 @media(max-width:380px){.sidebar button{font-size:8px!important}.sidebar button svg{width:18px!important;height:18px!important}.dashboard-kpis article{padding:11px 7px!important}.dashboard-kpis .kpi-icon{width:33px!important;height:33px!important;min-width:33px!important}.dashboard-kpis article strong{font-size:20px!important}.app-toolbar{padding:12px!important}}
+
+
+/* v2.1: 요청하신 세 화면만 수정하며 기존 나머지 화면의 규칙을 유지합니다. */
+/* 예전 전역 header input 규칙이 hidden을 무시하던 현상을 확실히 차단합니다. */
+input[type="file"][hidden], .toolbar-action input[type="file"]{display:none!important;visibility:hidden!important;position:absolute!important;width:0!important;height:0!important;pointer-events:none!important}
+/* 엑셀 업로드는 파일 선택 입력창 대신 동일한 버튼 표면에서 처리합니다. */
+.app-toolbar .toolbar-action{position:relative;isolation:isolate;line-height:1.35;text-align:center;box-shadow:0 2px 8px rgba(30,71,124,.04);transition:background .15s,border-color .15s,transform .15s}
+.app-toolbar .toolbar-action:hover{background:#f2f7ff!important;border-color:#bed5f7!important}
+.app-toolbar label.toolbar-action{background:#edf5ff!important;color:#205db1!important;border-color:#d7e7ff!important}
+.app-toolbar label.toolbar-action:hover{background:#e3f0ff!important}
+/* 로그인 화면의 텍스트와 버튼, 스포츠 로고를 하나의 중앙 정렬 축에 맞춥니다. */
+.login-page{display:flex!important;align-items:center!important;justify-content:center!important;min-height:100dvh!important;padding:22px!important}
+.login-page .login-card.kakao-login-card{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center!important;gap:0!important;margin:auto!important;padding:38px 30px!important;width:min(100%,440px)!important;background:#fff!important}
+.login-card .login-mark{width:min(100%,220px)!important;height:115px!important;display:flex!important;justify-content:center!important;align-items:center!important;margin:0 auto 20px!important;background:transparent!important;border:0!important}
+.login-card .login-mark img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important}
+.login-card.kakao-login-card h1{margin:0 0 13px!important;font-size:clamp(22px,5.5vw,29px)!important;letter-spacing:-1px!important;line-height:1.35!important;word-break:keep-all}
+.login-card.kakao-login-card>p:not(.login-error){margin:0!important;line-height:1.7!important;word-break:keep-all}
+.login-card.kakao-login-card>p:not(.login-error):not(.login-disclaimer){color:#657791!important;font-size:14px!important}
+.login-card .kakao-login-button{width:100%!important;min-height:56px!important;margin:30px 0 17px!important;border-radius:15px!important;background:#edf5ff!important;color:#1c56a5!important;border:1px solid #cfe2ff!important;box-shadow:0 7px 18px rgba(42,112,209,.10)!important;font-size:15px!important;line-height:1.3;transition:background .15s,transform .15s}
+.login-card .kakao-login-button:hover{background:#e1efff!important}
+.login-card .kakao-login-button:active{transform:scale(.99)}
+.login-card .google-symbol{display:inline-grid!important;place-items:center!important;width:25px;height:25px;flex-shrink:0;font-weight:900;font-size:22px;line-height:1;background:conic-gradient(#4285f4 0deg 105deg,#34a853 105deg 175deg,#fbbc05 175deg 240deg,#ea4335 240deg 305deg,#4285f4 305deg 360deg);color:transparent;background-clip:text;-webkit-background-clip:text}
+.login-card.kakao-login-card>small{text-align:center!important;color:#8190a6!important}
+.login-card.kakao-login-card .login-disclaimer{width:100%;margin-top:34px!important;color:#94a0b1!important;font-size:11px!important;text-align:center!important;line-height:1.6!important}
+.login-card.kakao-login-card .login-error{margin:0 0 12px!important;text-align:center!important;color:#c64040!important}
+/* 데스크톱 차량관리는 기존 표를 유지하면서 전화번호와 시간이 끊어지지 않게 합니다. */
+.vehicle-table{width:100%;min-width:680px;table-layout:auto}
+.vehicle-table th,.vehicle-table td{white-space:nowrap!important;overflow-wrap:normal!important;word-break:keep-all!important;vertical-align:middle}
+.vehicle-table td:nth-child(4){white-space:normal!important;min-width:100px}
+.vehicle-table td:nth-child(6) a{white-space:nowrap!important;display:inline-block}
+.vehicle-table td:last-child button{white-space:nowrap;border-radius:9px}
+@media(max-width:700px){
+ /* 버튼마다 같은 너비와 충분한 터치 영역을 확보합니다. */
+ .app-toolbar .toolbar-actions{gap:10px!important}
+ .app-toolbar .toolbar-action{min-height:52px!important;padding:12px 8px!important;font-size:12px!important;white-space:nowrap!important}
+ .app-toolbar .toolbar-action svg{height:17px;width:17px}
+ /* 모바일에서는 로그인 카드를 상단으로 늘리지 않고 화면 가운데 배치합니다. */
+ .login-page{padding:18px!important}
+ .login-page .login-card.kakao-login-card{padding:32px 22px!important;border-radius:26px!important}
+ .login-card .login-mark{width:184px!important;height:100px!important}
+ .login-card.kakao-login-card .login-disclaimer{margin-top:29px!important}
+ /* 등하원 차량 표를 학생별 카드로 바꿔 옆으로 밀지 않고 읽을 수 있게 합니다. */
+ .vehicle-table{min-width:0!important;width:100%!important;table-layout:auto!important;border-collapse:separate!important;border-spacing:0 10px!important;white-space:normal!important}
+ .vehicle-table thead{display:none!important}
+ .vehicle-table tbody{display:block!important;width:100%}
+ .vehicle-table tbody tr{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px 12px!important;background:#f8fbff!important;border:1px solid #dce8f6!important;border-radius:16px!important;padding:15px!important;margin:0 0 10px!important;box-shadow:0 3px 11px #234d7907}
+ .vehicle-table td{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;gap:4px!important;min-width:0!important;width:100%!important;min-height:0!important;padding:0!important;border:0!important;font-size:13px!important;line-height:1.5!important;white-space:normal!important;overflow-wrap:break-word!important;word-break:keep-all!important}
+ .vehicle-table td::before{content:attr(data-label);font-size:10px!important;font-weight:700;color:#7b8ea6;line-height:1.25}
+ .vehicle-table td:nth-child(1){grid-column:1;grid-row:1;color:#5b7da4;font-size:11px!important}
+ .vehicle-table td:nth-child(2){grid-column:2;grid-row:1;align-items:flex-end!important;text-align:right;font-weight:700;color:#2865ac}
+ .vehicle-table td:nth-child(3){grid-column:1/-1;grid-row:2;font-size:17px!important;font-weight:800;color:#183355}
+ .vehicle-table td:nth-child(3)::before{display:none}
+ .vehicle-table td:nth-child(4){grid-column:1;grid-row:3;min-width:0!important}
+ .vehicle-table td:nth-child(5){grid-column:2;grid-row:3}
+ .vehicle-table td:nth-child(6){grid-column:1;grid-row:4;white-space:nowrap!important}
+ .vehicle-table td:nth-child(6) a{font-weight:700;font-size:13px;white-space:nowrap!important}
+ .vehicle-table td:nth-child(7){grid-column:2;grid-row:4;align-items:flex-end!important}
+ .vehicle-table td:nth-child(7)::before{display:none}
+ .vehicle-table td:nth-child(7) button{background:#e7f1ff;color:#2664a9;border:1px solid #d1e3f9;min-width:70px;min-height:38px;padding:8px 12px;border-radius:10px}
+}

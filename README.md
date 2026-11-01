@@ -1,35 +1,24 @@
-# 성진 클래스 잠원 v0.5 — 카카오 로그인
+# 성진 클래스 잠원점 v0.6
 
-## 포함 기능
-- 카카오 OAuth 전용 로그인 (기존 이메일/비밀번호 폼 제거)
-- 대시보드, 학생 등록/수정/삭제, 주간 시간표, 출석, 차량, 교육비
-- 엑셀 업로드, 운영 데이터 다운로드, 원본 셀 값 다운로드
-- Supabase `academy_data` 테이블에 사용자별 저장
-- Render Static Site 배포 가능
+## 포함 사항
+- 카카오 OAuth 로그인: Supabase PKCE 사용, `apikey` 누락 오류에 대비해 인증 URL에 **공개** 키를 전달합니다.
+- 태권도 발차기 아이콘, PC/모바일 반응형 UI
+- 학생·시간표·출석·차량·교육비의 **기존 v0.5 기능**
+- 원본 엑셀 11개 시트 조회(표시값), 원본 `.xlsx` 전체 파일 비공개 업로드/다운로드
+- `private-import/original-academy.xlsx` : 원본 파일의 **변형 없는 사본**. `.gitignore`로 GitHub 업로드 제외.
 
-## 중요한 한계
-- **실제 학생 개인정보는 ZIP/소스/GitHub에 포함하지 않습니다.** 로그인 후 원본 엑셀을 직접 업로드하세요.
-- 현재 엑셀 가져오기는 `입관원서` 시트의 일부 필드만 학생 목록으로 변환합니다. 출석·차량·교육비 원본은 셀 값 아카이브만 보관하며 화면 자동 반영은 아직 구현되지 않았습니다.
-- 원본 다운로드는 서식/수식이 보존되지 않습니다. 원본 파일을 따로 백업하세요.
-- 기존 `academy_data` RLS는 **계정별 데이터 격리**입니다. 카카오로 로그인한 모든 사용자가 자기 데이터 공간을 생성할 수 있으며, 4명 공동 관리·승인 기능은 아직 없습니다.
-- **실제 학생 개인정보 업로드는 관리자 허용 목록과 RLS를 적용한 후 진행하세요.** 이 버전은 테스트용입니다.
-- 빌드 및 실기기 테스트는 완료되지 않았습니다.
+## 설치
+1. `npm install` → `npm run build` → `npm run dev`.
+2. 기존 `.env.local` 유지: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY` (Publishable Key).
+3. Supabase SQL Editor에서 **`supabase-storage.sql` 최초 1회 실행** (기존 `supabase.sql` 재실행하지 않음).
+4. Supabase Authentication > Providers > Kakao에서 Client ID/Secret 설정, 카카오 REST API 키에 Supabase `/auth/v1/callback` 로그인 리다이렉트 등록.
+5. 로그인 후 **엑셀 업로드** 버튼으로 `private-import/original-academy.xlsx`를 선택합니다. 원본 11개 시트가 비공개 버킷에 저장됩니다.
+6. 원본 시트 메뉴에서 표시값을 조회하고, 원본 다운로드로 실제 원본 파일을 복원합니다.
 
-## 설정
-1. Kakao Developers: REST API 키의 카카오 로그인 Redirect URI에 `https://<project-ref>.supabase.co/auth/v1/callback` 등록, 카카오 로그인 활성화, Client Secret 설정.
-2. Supabase Authentication → Providers → Kakao: REST API 키(Client ID), Client Secret 입력.
-3. Supabase Authentication → URL Configuration: 로컬 주소 및 실제 Render 주소 허용.
-4. 기존 `academy_data` 테이블과 RLS 유지. `supabase.sql`을 재실행하지 마세요.
-5. `.env.local`을 프로젝트 루트에 작성 (아래 예시 참고).
-6. `npm install` → `npm run dev` → `npm run build`.
-7. Render Environment에도 같은 VITE_* 값 입력 후 재배포.
-
-```dotenv
-VITE_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
-VITE_SUPABASE_ANON_KEY=YOUR_PUBLISHABLE_KEY
-```
-
-**주의:** `sb_secret_...`와 카카오 Client Secret은 프론트엔드/깃에 넣지 마세요.
-
-## Git
-기존 프로젝트의 `.git`과 `.env.local`을 유지하고 새 소스만 병합하세요. 원격 브랜치 충돌이 해결되지 않았다면 강제 push하지 마세요.
+## 중요한 제한
+- **원본 파일은 ZIP에 포함되지만 GitHub/Render 정적 사이트에는 포함시키면 안 됩니다.** `private-import/`는 `.gitignore`로 제외되며 빌드에서 사용하지 않습니다.
+- 학생·출석·차량·교육비를 각 업무 화면으로 자동 변환하는 작업은 아직 미완료입니다. **원본 보존 ≠ 업무 데이터 이관 완료**입니다.
+- 카카오 로그인 성공자 누구나 자신의 계정 공간을 생성할 수 있습니다. 현재 `academy_data` RLS는 **계정별 격리**만 합니다. 4인 승인·공유는 미구현입니다. 실제 학생정보를 운영용으로 올리기 전 승인 기능과 보안 검증이 필요합니다.
+- `private-import/` 폴더를 별도 Public GitHub 저장소에 수동 업로드하지 마세요.
+- 이전에 스크린샷에 노출된 카카오 Client Secret은 재발급하세요.
+- Supabase Storage 무료 용량과 브라우저 메모리 사용량 제한이 있습니다.

@@ -31,3 +31,5 @@ table{font-size:13px}th{background:#f7f9fc;color:#6e7c8c}td,th{border-bottom:1px
 .kakao-login-card .login-error { color: #c52828; font-size: 14px; }
 .kakao-login-card .login-disclaimer { margin-top: 30px; font-size: 12px; color: #8993a3; line-height: 1.7; }
 @media (max-width: 600px) { .kakao-login-card { padding: 30px 24px; border-radius: 24px; } }
+
+.login-mark{width:92px;height:92px;border-radius:24px;overflow:hidden;padding:0;background:#eaf2ff}.login-mark img{display:block;width:100%;height:100%;object-fit:cover}.brand span{font-size:0!important;background:#eaf2ff url('/taekwondo-kick.png') center/cover no-repeat!important}.brand span:after{content:''!important}.original-tools{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}.original-tools input{flex:1;min-width:180px}.original-scroll{max-height:65vh;overflow:auto}.original-scroll td{white-space:pre-wrap;min-width:90px;max-width:240px;vertical-align:top}@media(max-width:700px){.original-panel{padding:14px}.original-scroll td{font-size:11px;min-width:75px}}

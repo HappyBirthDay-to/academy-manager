@@ -1,3 +1,19 @@
-node_modules
-dist
+# npm install로 다시 생성되는 패키지를 제외합니다.
+node_modules/
+
+# Vite 빌드 결과물은 Render에서 생성하므로 제외합니다.
+dist/
+
+# macOS에서 자동 생성하는 시스템 파일을 제외합니다.
+.DS_Store
+
+# 로컬 환경변수가 GitHub에 공개되지 않도록 제외합니다.
 .env
+.env.*
+!.env.example
+
+# Google OAuth 비밀 파일을 제외합니다.
+client_secret.json
+
+# 학생 개인정보가 포함된 원본 파일을 제외합니다.
+private-import/

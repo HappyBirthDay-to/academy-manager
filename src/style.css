@@ -35,9 +35,111 @@ table{font-size:13px}th{background:#f7f9fc;color:#6e7c8c}td,th{border-bottom:1px
 .login-mark{width:92px;height:92px;border-radius:24px;overflow:hidden;padding:0;background:#eaf2ff}.login-mark img{display:block;width:100%;height:100%;object-fit:cover}.brand span{font-size:0!important;background:#eaf2ff url('/taekwondo-kick.png') center/cover no-repeat!important}.brand span:after{content:''!important}.original-tools{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}.original-tools input{flex:1;min-width:180px}.original-scroll{max-height:65vh;overflow:auto}.original-scroll td{white-space:pre-wrap;min-width:90px;max-width:240px;vertical-align:top}@media(max-width:700px){.original-panel{padding:14px}.original-scroll td{font-size:11px;min-width:75px}}
 
 /* v0.7: 태권도·줄넘기 통합 브랜드와 모바일 가독성을 높입니다. */
-.brand .academy-emblem{display:block;width:60px;height:44px;min-width:60px;padding:0;background:#14213b url('/academy-emblem.svg') center/cover no-repeat!important;border-radius:11px}.brand .academy-emblem:after{content:none!important}
+.brand .academy-emblem{display:block;width:60px;height:44px;min-width:60px;padding:0;background:#14213b url('/academy-emblem-reference.png') center/cover no-repeat!important;border-radius:11px}.brand .academy-emblem:after{content:none!important}
 .academy-hero{display:flex;align-items:center;gap:24px;background:linear-gradient(105deg,#14213b,#2858a1);color:white;border-radius:22px;padding:22px 30px;margin-bottom:22px}.academy-hero img{width:170px;height:95px;object-fit:contain}.academy-hero span{font-size:11px;color:#b4d0ff;font-weight:800;letter-spacing:1px}.academy-hero h2{font-size:27px;margin:6px 0}.academy-hero p{font-size:13px;color:#e1ebff;margin:0}.cards article{transition:transform .15s}.cards article:hover{transform:translateY(-2px)}
 @media(max-width:700px){.academy-hero{padding:15px;gap:12px}.academy-hero img{width:90px;height:76px}.academy-hero h2{font-size:19px}.academy-hero p{font-size:11px}.sidebar button:nth-of-type(7){display:none}}
 
 /* v0.7: Google 로그인 버튼을 읽기 쉬운 중립형으로 표시합니다. */
 .kakao-login-button{background:#fff!important;border:1px solid #dce3ed!important;color:#273142!important}.login-mark{width:105px;height:76px;background:#14213b}.login-mark img{object-fit:contain}
+
+/* v0.8: 첫 번째 시안의 정보 배치에 맞춘 아이스 블루 디자인입니다. */
+:root{--ice:#edf7ff;--ice-accent:#338cf4;--navy:#17283d}
+body{background:#f4f9ff;color:#162337}
+.sidebar{background:linear-gradient(180deg,#18304a,#10263d);color:#dceeff;width:250px}
+.sidebar button{color:#c7d9ef;border-radius:13px}
+.sidebar button.active,.sidebar button:hover{background:#dcefff;color:#124d9a;font-weight:800}
+.brand{font-size:16px;margin-bottom:56px}
+header{background:rgba(255,255,255,.94);border-color:#e5effa}
+.content{max-width:1540px;padding:26px 30px}
+.heading{margin-bottom:20px}
+.heading h1{font-size:27px}
+.academy-hero{min-height:185px;justify-content:space-between;background:linear-gradient(110deg,#e7f5ff,#d2eaff 65%,#e9f6ff);color:#142944;border:1px solid #cee5fa;padding:24px 38px;overflow:hidden}
+.academy-hero img{width:230px;height:135px;object-fit:contain;filter:drop-shadow(0 7px 14px #3672b029)}
+.academy-hero span{color:#3281c5}.academy-hero h2{font-size:31px;color:#16283f}.academy-hero p{color:#51708e;line-height:1.65}
+.cards{gap:12px}.cards article,.panel{box-shadow:0 9px 28px #3977b00a;border:1px solid #e2edf7;border-radius:19px}
+.cards article{padding:20px}.cards strong{margin:9px 0;font-size:30px}
+.dashboard-grid{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(290px,1fr);gap:16px;align-items:start}
+.dashboard-grid .panel{margin-bottom:16px}.dashboard-students{min-height:400px}.dashboard-side .quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.dashboard-side .quick button{min-height:92px;align-items:center;text-align:center;justify-content:center;gap:8px;background:#edf6ff;color:#28639b;padding:12px 6px}
+.dashboard-side .quick button:nth-child(2){background:#f0edff;color:#6b55ba}.dashboard-side .quick button:nth-child(3){background:#e8faf2;color:#16865c}
+.dashboard-side .quick button:nth-child(4){background:#fff1e6;color:#bf651d}.dashboard-side .quick button:nth-child(5){background:#fff5d9;color:#a97a10}
+.today-classes{display:grid;gap:5px}.class-row{display:flex;align-items:center;gap:10px;padding:11px 7px;border-bottom:1px solid #edf3f9}.class-row strong{color:#2674c6;background:#eaf4ff;border-radius:9px;padding:7px}.class-row span{flex:1;font-size:13px}.class-row button{background:transparent;color:#3984d0}
+.data-banner{display:flex;align-items:center;justify-content:space-between;gap:8px;border-radius:12px;padding:12px 16px;margin-bottom:18px;background:#e8f4ff;color:#2b628f;font-size:13px}
+.data-banner>div{display:flex;align-items:center;gap:8px}.data-banner button{display:flex;align-items:center;gap:5px;color:#246bb0;background:#fff;border-radius:9px;padding:9px 11px;flex-shrink:0}
+.data-error,.data-empty{background:#fff2e4;color:#9a4c19}.data-loading{background:#f0f4f9;color:#57667b}
+.export-mini{margin-top:18px}
+@media(max-width:1120px){.dashboard-grid{grid-template-columns:1fr}.dashboard-side{display:grid;grid-template-columns:1fr 1fr;gap:14px}.dashboard-side .panel{margin:0}}
+@media(max-width:700px){.content{padding:20px 14px}.dashboard-side{grid-template-columns:1fr}.sidebar{background:#fff}.sidebar button.active{background:#e7f3ff;color:#2878dc}.academy-hero{min-height:130px;padding:15px;gap:8px}.academy-hero img{width:105px;height:95px}.academy-hero h2{font-size:20px}.academy-hero p{font-size:11px}.academy-hero span{font-size:9px}.data-banner{align-items:flex-start}.data-banner>div{align-items:flex-start}.dashboard-side .quick{grid-template-columns:repeat(3,1fr)}}
+
+/* v1.0 — 선택한 1번 시안의 밝은 아이스 블루 사이드바와 실제 배너를 적용합니다. */
+:root{--ice:#eaf4ff;--ice-accent:#2678ee;--navy:#10284a}
+.sidebar{background:linear-gradient(180deg,#f0f8ff 0%,#e3f1ff 100%);color:#19365a;border-right:1px solid #dbeafa;width:250px}
+.brand{color:#102c52;margin:3px 4px 43px;font-size:16px;gap:9px}
+.brand small,.sidebar p,.sidebar footer{color:#6c86a6}
+.sidebar button{color:#365c89;font-size:14px;font-weight:650}
+.sidebar button.active,.sidebar button:hover{background:linear-gradient(90deg,#d7eaff,#bcdcff);color:#1263d7}
+.content{max-width:1660px;padding:24px 28px}
+.heading{margin-bottom:14px}.heading h1{font-size:25px}
+.academy-hero{display:block!important;min-height:0!important;height:auto!important;aspect-ratio:1253/214;background:#dceeff url('/academy-banner.png') center center/100% 100% no-repeat!important;border:0!important;border-radius:16px!important;padding:0!important;margin-bottom:15px!important}
+.dashboard-kpis{grid-template-columns:repeat(5,minmax(0,1fr));gap:11px;margin-bottom:15px}
+.dashboard-kpis article{display:flex;align-items:center;gap:12px;min-width:0;padding:17px 14px}
+.dashboard-kpis article>div:last-child{min-width:0}.dashboard-kpis article span{font-size:12px}.dashboard-kpis article strong{font-size:27px;margin:7px 0 4px}.dashboard-kpis article p{margin:0;font-size:11px}
+.kpi-icon{width:46px;height:46px;flex-shrink:0;display:grid;place-items:center;border-radius:15px}
+.kpi-blue{color:#2577eb;background:#e8f1ff}.kpi-purple{color:#7859e7;background:#f1edff}.kpi-green{color:#0aaf80;background:#e3f9f1}.kpi-orange{color:#f0831c;background:#fff0e5}.kpi-yellow{color:#e6a600;background:#fff7df}
+.dashboard-grid{grid-template-columns:minmax(0,2.5fr) minmax(310px,1fr);gap:14px}
+.dashboard-students{min-height:570px}.dashboard-table-head{align-items:center;flex-wrap:wrap}.dashboard-actions{display:flex;gap:9px;align-items:center}
+.dashboard-search{display:flex;align-items:center;gap:6px;padding:0 9px;border:1px solid #dfe8f5;border-radius:10px;color:#7b91ad}.dashboard-search input{border:0;outline:0;width:185px;font-size:12px;padding:9px 2px}
+.dashboard-table th,.dashboard-table td{padding:13px 10px}.dashboard-table th{background:#f5f8fd}.student-status{display:inline-flex;border-radius:20px;padding:5px 9px;background:#e0f8ee;color:#16875c;font-weight:700;font-size:11px}
+.table-tools{white-space:nowrap}.table-tools button{background:transparent;color:#5c789c;margin-right:1px;padding:6px}.table-tools button:last-child{color:#ec6470}
+.dashboard-table-footer{display:flex;justify-content:space-between;gap:8px;margin-top:20px;border-top:1px solid #edf2f9;padding-top:16px}.dashboard-side .panel{padding:18px}.dashboard-side .quick button{font-size:12px}
+.text-link{background:none;color:#2678ee;font-size:12px}.data-ready{background:#eaf8f1;color:#187752}
+@media(max-width:1320px){.dashboard-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.dashboard-grid{grid-template-columns:1fr}.dashboard-side{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:850px){.dashboard-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.dashboard-side{grid-template-columns:1fr}.academy-hero{aspect-ratio:1253/280;background-size:cover!important}.dashboard-table-head{align-items:stretch}.dashboard-actions{flex-wrap:wrap}.dashboard-search{flex:1}.dashboard-search input{width:100%}}
+@media(max-width:700px){.sidebar{background:#f1f8ff!important}.sidebar button{color:#285c96!important}.sidebar button.active{background:#d8eaff!important}.brand{color:#12355b!important}.dashboard-kpis article{padding:13px 10px}.dashboard-kpis article strong{font-size:23px}.kpi-icon{width:38px;height:38px}.academy-hero{aspect-ratio:1253/400;background-size:cover!important}.dashboard-table-footer{flex-wrap:wrap}}
+
+/* 날짜별 업무 화면: 좁은 모바일에서도 일괄 버튼을 줄바꿈합니다. */
+.workflow{padding:24px}.workflow-filters,.bulk-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:16px 0}.workflow-filters label{display:flex;align-items:center;gap:8px;color:#53718e;font-size:13px}.bulk-actions{background:#eef7ff;border-radius:14px;padding:12px}.bulk-actions span{font-size:13px;color:#315b85;font-weight:700;margin-right:auto}.bulk-actions button{border:1px solid #c9def4;background:#fff;border-radius:10px;padding:10px 12px;color:#19568f;font-weight:700}.bulk-actions button:disabled{opacity:.4;cursor:not-allowed}.bulk-actions button:nth-of-type(2){background:#dff8ed;color:#087b4c}.bulk-actions button:nth-of-type(3){background:#fff2dc;color:#a36300}.bulk-actions button:nth-of-type(4){background:#ffeaed;color:#b02b45}.workflow-table{min-width:640px}.workflow-table td,.workflow-table th{padding:14px 12px}.workflow-table a{color:#1167cc;font-weight:700;text-decoration:underline}.workflow h3{font-size:16px;margin:24px 0 10px}.workflow .status{width:110px}.workflow-table input[type=checkbox]{width:18px;height:18px;accent-color:#287de1}.academy-hero{background-image:url('/academy-banner.png')!important}.brand  .academy-emblem::after{display:none!important}@media(max-width:700px){.workflow{padding:14px}.workflow-filters>input{width:100%}.bulk-actions span{width:100%}.workflow-table{min-width:560px}}
+
+/* v1.2: 작은 화면에서도 모든 메뉴와 업무 버튼을 사용할 수 있도록 정리합니다. */
+@media(max-width:700px){
+ .layout{padding-bottom:calc(88px + env(safe-area-inset-bottom))!important}
+ .sidebar{width:100%!important;max-width:100vw;overflow-x:auto;overflow-y:hidden;justify-content:flex-start!important;gap:3px;scrollbar-width:thin}
+ .sidebar button{flex:0 0 72px!important;min-width:72px!important;font-size:10px!important;white-space:nowrap}
+ .sidebar button:nth-of-type(7){display:flex!important}
+ header{padding:12px!important;min-height:unset!important;height:auto!important}
+ header>div{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;gap:8px!important}
+ header input,header button.secondary,header label.secondary{width:100%;max-width:none!important;min-width:0!important;justify-content:center;display:flex;align-items:center;white-space:nowrap;font-size:12px!important}
+ .content{padding:15px 12px!important}
+ .data-banner{padding:12px!important;gap:8px;flex-wrap:wrap}
+ .data-banner button{flex-shrink:0}
+ .workflow{padding:13px!important}
+ .workflow-table{min-width:650px}
+ .bulk-actions{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px!important}
+ .bulk-actions span{grid-column:1/-1}
+ .bulk-actions button{padding:10px 5px!important;font-size:12px}
+ .panelhead{gap:12px}
+ .heading{margin-top:15px}
+}
+
+/* v1.3 최종 우선순위: 기존 중복 규칙을 덮어 모바일 충돌을 방지합니다. */
+.brand .academy-emblem{background:#eaf4ff url('/academy-emblem.png') center/contain no-repeat!important}
+@media (min-width:701px){.sidebar{background:linear-gradient(180deg,#eff8ff,#e4f0ff)!important;color:#1d3b64!important}.sidebar button{color:#355b89!important}.sidebar button.active{background:#cce4ff!important;color:#075dc7!important}}
+@media (max-width:700px){
+ .layout{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
+ .sidebar{display:grid!important;grid-template-columns:repeat(7,minmax(0,1fr))!important;gap:0!important;overflow:visible!important;width:100%!important;max-width:100%!important;height:calc(70px + env(safe-area-inset-bottom))!important;padding:4px 3px env(safe-area-inset-bottom)!important}
+ .sidebar button{flex:initial!important;min-width:0!important;width:100%!important;font-size:9px!important;padding:5px 0!important;gap:4px!important;overflow:hidden!important;text-overflow:clip!important;white-space:nowrap!important}
+ .sidebar button svg{width:19px!important;height:19px!important;flex-shrink:0!important}
+ .sidebar button:nth-of-type(7){display:flex!important}
+ header>div{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:7px!important}
+ header>div>*{min-width:0!important;max-width:100%!important}
+ .content{padding:15px 12px!important;overflow-x:hidden!important}
+ .cards,.dashboard-kpis{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .academy-hero{background-position:center!important}
+ .scroll{overflow-x:auto!important;-webkit-overflow-scrolling:touch}
+ .workflow-table{min-width:650px!important}
+ .bulk-actions{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+
+/* 원본 로고를 왜곡하지 않고 비율을 유지합니다. */
+.academy-emblem-image{display:block;width:88px;max-width:100%;height:auto;object-fit:contain;flex-shrink:0}
+@media(max-width:720px){.academy-emblem-image{width:68px}}

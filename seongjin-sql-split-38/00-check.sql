@@ -1,0 +1,1 @@
+/Users/dragonwoo/Downloads/academy-manager/seongjin-sql-split-38/02.sql
